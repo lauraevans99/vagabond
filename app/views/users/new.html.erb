@@ -1,0 +1,18 @@
+Sign Up form
+
+<%= form_for @user do |f| %>
+
+<div>
+	<%= f.text_field :alias, placeholder: "Alias" %>
+</div>
+<div>
+	<%= f.text_field :email_digest, placeholder: "Email" %>
+</div>
+<div>
+	<%= f.password_field :password, placeholder: "Password" %>
+</div>
+<div>
+	<%= f.password_field :confirm_password, placeholder: "Confirm Password" %>
+</div>
+<%= f.submit "Sign Me Up Pirate" %>
+<% end %>
