@@ -1,5 +1,42 @@
-My Profile
+<div class="container">
+    <div class="span3 well">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="http://www.whenwhowhere.com/sites/whenwhowhere.com/files/images/images%20(2).jpg" name="aboutme" width="140" height="140" class="img-circle"></a>
+        <h3> <%= @user.alias.capitalize %></h3>
+        <em>click my face for more</em>
+		</center>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel"><%= @user.alias.capitalize %>'s Profile</h4>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    <img src="http://www.whenwhowhere.com/sites/whenwhowhere.com/files/images/images%20(2).jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading"> <%= @user.alias.capitalize %> <small>San Francisco, CA</small></h3>
+                        <span class="label label-warning">Date Joined <%= @user.created_at %></span>
+                       
+                    
+     <span class="label label-success"><button class="btn btn-default"><%= link_to "Edit Profile", edit_user_path(@user.id) %></button></span> 
 
-<h3>
-<%= @user.alias %>
-</h3>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left"><strong>Recent Posts </strong><br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus.</p>
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"> Back to HideAbout</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

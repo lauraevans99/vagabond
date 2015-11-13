@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   resources :users do
   	resources :posts
   end
-
+  
   resources :cities do 
   	resources :posts
   end
+
+  
 
   get '/sign_in', to: 'sessions#new'
 
@@ -18,4 +20,3 @@ Rails.application.routes.draw do
 
 
 
-end
