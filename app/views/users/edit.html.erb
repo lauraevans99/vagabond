@@ -1,10 +1,9 @@
 
 
+<h1>Edit Profille</h1>
 
-
-<div class="row" id="sign_up_form">
+<div class="row">
 	<div class="col-md-6 col-md-offset-3">
-	<h1>Sign Up form</h1>
 
 <%= form_for @user do |f| %>
 
@@ -21,7 +20,7 @@
 	<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
 </div>
 <div class="gravatar_edit">
-<%= f.submit "Sign Me Up Pirate" %>
+<%= f.submit "Update Profile" %>
 </div>
 <% end %>
 </div>
