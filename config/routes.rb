@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
 
-  resources :users
+  resources :users do
+  	resources :posts
+  end
+
+  resources :cities do 
+  	resources :posts
+  end
 
   get '/sign_in', to: 'sessions#new'
 
@@ -10,6 +16,6 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  # resources :posts
+
 
 end
