@@ -6,16 +6,12 @@ Rails.application.routes.draw do
   	resources :posts
   end
 
-  resources :cities do 
-  	resources :posts
-  end
-
   get '/sign_in', to: 'sessions#new'
 
   post '/sessions', to: 'sessions#create'
 
   get '/logout', to: 'sessions#destroy'
 
-
+  get '/cities/:id/posts', to: 'cities#show'
 
 end

@@ -21,8 +21,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		id = params[:id]
-		@user = User.find(id)
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+		else 
+			redirect_to "/"
+		end
 	end
 
 	def user_params
