@@ -1,0 +1,14 @@
+Add Post
+<%= @user %>
+<%= @post %>
+<%= form_for [@user, @post] do |f| %>
+
+<div>
+	<%= f.text_field :title, placeholder: "Title" %>
+</div>
+<div>
+	<%= f.text_field :body, placeholder: "Body" %>
+</div>
+<%= f.hidden_field :user_id, :value => @user.id %>
+<%= f.submit "Add Post" %>
+<% end %>
