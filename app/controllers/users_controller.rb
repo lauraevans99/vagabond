@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 
 	def create
 		#user_params = params.require(:user).permit(:alias, :email_digest, :password)
-		user = User.create(user_params)
-		if user.save
+		@user = User.create(user_params)
+		if @user.save
 			login(@user)
 			redirect_to "/users/#{@user.id}"
 		else
