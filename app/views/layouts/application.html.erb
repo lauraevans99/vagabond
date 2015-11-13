@@ -5,8 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
   <!-- Include Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
+
+  <!-- Google Maps -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+        async defer></script>
+
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -25,7 +32,7 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Profile</a></li>
-			<li><a href="#">Posts</a></li>
+			<li><a href="/users/1/posts">Posts</a></li>
 		</ul>
 		<form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
