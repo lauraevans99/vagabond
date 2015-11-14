@@ -1,7 +1,7 @@
 <div class="container">
     <div class="span3 well">
         <center>
-        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="http://www.whenwhowhere.com/sites/whenwhowhere.com/files/images/images%20(2).jpg" name="aboutme" width="140" height="140" class="img-circle"></a>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><%= image_tag @user.avatar.url(:medium) %></a>
         <h3> <%= @user.alias.capitalize %></h3>
         <em>click my face for more</em>
 		</center>
