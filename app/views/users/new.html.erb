@@ -7,6 +7,8 @@
 	<h1>Sign Up form</h1>
 
 <%= form_for @user do |f| %>
+	
+	<%= f.file_field :avatar %>
 
 <div>
 	<%= f.text_field :alias, placeholder: "Alias" %>
