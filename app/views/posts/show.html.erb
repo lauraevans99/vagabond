@@ -6,8 +6,11 @@
 <h4><%= p.title %></h4>
 <h5><%= p.body %></h5>
 
-<%= button_to "show", {:controller => :posts,
-      :action => 'show', :id => p.id }, :method => :get %>
+<%= button_to "delete", {:controller => :posts,
+      :action => 'destroy', :id => p.id }, :method => :delete %>
 
 <% end %>
+
+
+
 </div>

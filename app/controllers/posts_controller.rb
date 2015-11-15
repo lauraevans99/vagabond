@@ -9,6 +9,16 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def show
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+			@post = Post.where(user_id: @user.id, id: params[:id])
+		else
+			redirect_to "/"
+		end
+	end
+
 	def new
 		@post = Post.new
 		@user = User.find(session[:user_id])
@@ -24,5 +34,14 @@ class PostsController < ApplicationController
 			redirect_to "/"
 		end
 	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+		@user = User.find(session[:user_id])
+		redirect_to "/users/#{@user.id}/posts"
+	end
+
+
 	
 end
