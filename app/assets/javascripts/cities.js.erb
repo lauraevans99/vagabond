@@ -1,0 +1,56 @@
+// # Place all the behaviors and hooks related to the matching controller here.
+// # All this logic will automatically be available in application.js.
+// # You can use CoffeeScript in this file: http://coffeescript.org/
+// $(document).ready(function(){
+ 
+var map;
+var contentstring;
+var marker;
+var infowindow;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 37.790514, lng: -122.396531},
+    zoom: 3
+  });
+
+  city_data();
+
+
+
+}
+
+
+function city_data (){
+   gon.cities.forEach(function(city){
+console.log(city.lat);
+console.log(city.long);
+  var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3 id="firstHeading" class="firstHeading">'+ city.name + '</h3>'+
+      '</div>'+
+      '</div>';
+
+  var marker = new google.maps.Marker({
+    position: {lat: city.lat, lng: city.long},
+    map: map,
+    title: city.name
+ });
+  
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+});
+     marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+
+  });
+} 
+
+// });
+
+
+
+
+

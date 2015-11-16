@@ -1,3 +1,17 @@
+ 
 <div id="map-canvas" style="width: 100%; height: 400px">
 	<div id="map"></div>
 </div>
+
+
+<% @cities.each do |city| %>
+<div class = "city_info">
+<h3> Name: <%= city.name %> </h3>
+</div>
+<%end%>
+
+
+
+
+
+
