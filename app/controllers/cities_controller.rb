@@ -1,10 +1,17 @@
 class CitiesController < ApplicationController
 
 	def index
-		@cities = City.all
-		gon.cities = @cities
-		render :index
 
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+			@cities = City.all
+			gon.cities = @cities
+			render :index
+		else
+			@user = User.new
+		end
+		# redirect_to '/cities'
 	end
 	
 	def show

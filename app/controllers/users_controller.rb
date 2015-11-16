@@ -1,22 +1,35 @@
 class UsersController < ApplicationController
 
 	def welcome
-		 
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+		end	
 	end
 
 	def new
-		@user = User.new
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+			# redirect_to '/users/#{@user.id}'
+			redirect_to '/users/#{@user.id}'
+		else	
+			@user = User.new
+			render 'new'
+			# redirect_to '/users/#{@user.id}'
+		end
 
 	end
 
 	def create
 		#user_params = params.require(:user).permit(:alias, :email_digest, :password)
 		@user = User.create(user_params)
+		
 		if @user.save
 			login(@user)
 			redirect_to "/users/#{@user.id}"
 		else
-			redirect_to "/users/new"
+			redirect_to "/sign_in"
 		end
 	end
 

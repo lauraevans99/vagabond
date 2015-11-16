@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 		if @post.save
 			redirect_to "/users/#{@user.id}/posts"
 		else
-			redirect_to "/"
+			redirect_to "/users/#{@user.id}/posts"
 		end
 	end
 

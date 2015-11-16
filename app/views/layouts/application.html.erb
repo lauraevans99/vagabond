@@ -13,7 +13,7 @@
 
   <!-- Google Maps -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyhrb1ifpdnipYUVq6KQJIToNaZJfCNpU&callback=initMap"
         async defer></script>
 
 </head>
@@ -27,15 +27,22 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/">The Hideabout</a>
+		<a class="navbar-brand" href="/cities">The Hideabout</a>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="3">Profile</a></li>
-			<li><a href="/users/1/posts">Posts</a></li>
+
+			<% if @user.alias %>
+			<li class=""><a href="/users/<%= @user.id %>">Profile</a></li>
+			<li><a href="/users/<%= @user.id %>/posts">Posts</a></li>
 			<li><a href="/cities">Main Map</a></li>
+			<% else %>
+			<li class="active"><a href="/sign_in">Profile</a></li>
+			<li><a href="/sign_in">Posts</a></li>
+			<% end %>
+			
 		</ul>
 		<form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
@@ -44,9 +51,13 @@
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/users/new">Sign Up</a></li>
-			<li><a href="/sign_in">Log In</a></li>
+			<% if @user.alias %>
 			<li><a href="/logout">Log Out</a></li>
+			<% else %>
+			<!-- <li><a href="/users/new">Sign Up</a></li> -->
+			<li><a href="/sign_in">Log In</a></li>
+			<!-- <li><a href="/logout">Log Out</a></li> -->
+			<% end %>
 		</ul>
 	</div><!-- /.navbar-collapse -->
 </nav>
