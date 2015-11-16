@@ -16,7 +16,7 @@
                     </div>
                 <div class="modal-body">
                     <center>
-                    <img src="http://www.whenwhowhere.com/sites/whenwhowhere.com/files/images/images%20(2).jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <%= image_tag @user.avatar.url(:medium) %></a>
                     <h3 class="media-heading"> <%= @user.alias.capitalize %> <small>San Francisco, CA</small></h3>
                         <span class="label label-warning">Date Joined <%= @user.created_at %></span>
                        
