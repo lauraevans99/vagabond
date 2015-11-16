@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://www.picturesof.net/_images_300/A_Man_with_a_Scruffy_Beard_and_Worn_Hat_Wearing_a_Pipe_Royalty_Free_Clipart_Picture_100404-002551-812053.jpg"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
+  
+ 
 end
 
-# /images/:style/defaultavatar.jpg

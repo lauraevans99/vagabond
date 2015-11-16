@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
 		id = session[:user_id]
 		if id
 			@user = User.find(id)
-			# redirect_to '/users/#{@user.id}'
-			redirect_to '/'
+		    redirect_to '/users/#{@user.id}'
+			# redirect_to '/'
 		else	
 			@user = User.new
 			render 'new'
