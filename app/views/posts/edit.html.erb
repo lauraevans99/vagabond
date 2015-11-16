@@ -1,0 +1,25 @@
+
+<h1>Update Post</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+<%= @user %>
+<%= @post %>
+
+<%= form_for [@user, @post] do |f| %>
+
+<div>
+	<%= f.text_field :title, placeholder: "Title" %>
+</div>
+<div>
+	<%= f.text_field :body, placeholder: "Body" %>
+</div>
+<%= f.hidden_field :user_id, :value => @user.id %>
+
+<div class="">
+<%= f.submit "Edit Post" %>
+</div>
+<% end %>
+</div>
+</div>
