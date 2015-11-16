@@ -1,0 +1,19 @@
+<div>
+<%= @user.alias %>
+
+<% @post.each do |p| %>
+
+<h4><%= p.title %></h4>
+<h5><%= p.body %></h5>
+
+<%= button_to "delete", {:controller => :posts,
+      :action => 'destroy', :id => p.id }, :method => :delete %>
+
+<button type="button" class="btn btn-default">
+	<a href="/users/5/posts/<%=p.id%>/edit">Update</a>
+</button>
+<% end %>
+
+
+
+</div>

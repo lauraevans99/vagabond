@@ -6,5 +6,8 @@
 <h4><%= p.title %></h4>
 <h5><%= p.body %></h5>
 
+<%= button_to "show", {:controller => :posts,
+      :action => 'show', :id => p.id }, :method => :get %>
+
 <% end %>
 </div>

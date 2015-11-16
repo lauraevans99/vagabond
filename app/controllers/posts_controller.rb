@@ -10,6 +10,16 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def show
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+			@post = Post.where(user_id: @user.id, id: params[:id])
+		else
+			redirect_to "/"
+		end
+	end
+
 	def new
 		@post = Post.new
 		@user = User.find(session[:user_id])
@@ -25,6 +35,32 @@ class PostsController < ApplicationController
 			redirect_to "/"
 		end
 	end
->>>>>>> 89113d20ff521f3f3517292ee2b9493176c0aa83
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+		@user = User.find(session[:user_id])
+		redirect_to "/users/#{@user.id}/posts"
+	end
+
+	def edit
+		@post = Post.find(params[:id])
+		@user = User.find(session[:user_id])
+		# redirect_to "/users/#{@user.id}/posts/#{@post.id}/edit"
+		# @post.update(title: , body: )
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		post_params = params.require(:post).permit(:title, :body, :user_id, :city_id)
+		@post.update_attributes(post_params)
+		@user = User.find(session[:user_id])
+		if @post.save
+			redirect_to "/users/#{@user.id}/posts"
+		else
+			render 'edit'
+		end
+	end
+>>>>>>> dfbdd0097c005aeec3163a37b429edd7669adaaa
 	
 end
