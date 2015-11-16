@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -32,6 +32,9 @@ gem 'gon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Added from Heroku's error message
+gem 'rails_12factor'
 
 # Use Paperclip to utilize image uploads
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
