@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151114000701) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "email_digest"
     t.string   "password_digest"
     t.string   "alias"
     t.datetime "created_at",                     null: false
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 20151114000701) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "email_digest"
   end
 
 end
