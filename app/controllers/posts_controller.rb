@@ -61,6 +61,5 @@ class PostsController < ApplicationController
 			render 'edit'
 		end
 	end
->>>>>>> dfbdd0097c005aeec3163a37b429edd7669adaaa
 	
 end
