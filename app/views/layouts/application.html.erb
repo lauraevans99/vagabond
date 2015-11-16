@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<hea>
   <title>Vagabond</title>
+  <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
 
   <!-- Include Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
@@ -31,9 +33,11 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
+
 			<% if @user.alias %>
 			<li class=""><a href="/users/<%= @user.id %>">Profile</a></li>
 			<li><a href="/users/<%= @user.id %>/posts">Posts</a></li>
+			<li><a href="/cities">Main Map</a></li>
 			<% else %>
 			<li class="active"><a href="/sign_in">Profile</a></li>
 			<li><a href="/sign_in">Posts</a></li>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
 	def index
 		id = session[:user_id]
 		if id

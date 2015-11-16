@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20151114000701) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.string   "lat"
-    t.string   "long"
+    t.float    "lat"
+    t.float    "long"
     t.string   "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
