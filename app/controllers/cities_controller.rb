@@ -15,7 +15,9 @@ class CitiesController < ApplicationController
 	end
 	
 	def show
+		id = session[:user_id]
 		@city = City.find(params[:id])
+		@user = User.find(id)
 		# id = cities[:city_id]
 		if @city
 			

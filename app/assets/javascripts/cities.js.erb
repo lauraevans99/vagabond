@@ -23,12 +23,12 @@ function initMap() {
 
 function city_data (){
    gon.cities.forEach(function(city){
-console.log(city.lat);
+console.log(typeof city.lat);
 console.log(city.long);
   var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
-      '<h3 id="firstHeading" class="firstHeading">'+ city.name + '</h3>'+
+      '<h3 id="firstHeading" class="firstHeading"><a href="/cities/'+ city.id +'/posts">'+ city.name + '</a></h3>'+
       '</div>'+
       '</div>';
 
