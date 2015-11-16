@@ -1,7 +1,16 @@
 class SessionsController < ApplicationController
 	
 	def new
-		@user = User.new
+		id = session[:user_id]
+		if id
+			@user = User.find(id)
+			# redirect_to '/users/#{@user.id}'
+			redirect_to '/'
+		else	
+			@user = User.new
+			render 'new'
+			# redirect_to '/users/#{@user.id}'
+		end
 	end
 
 	def create
@@ -11,6 +20,9 @@ class SessionsController < ApplicationController
 			login(@user)
 			redirect_to "/users/#{@user.id}"
 		else
+			# flash[:error] = @user.errors.full_messages.to_sentence
+			# flash.now[:danger] = 'Invalid email/password combination'
+			# render 'new'
 			redirect_to "/sign_in"
 		end
 	end

@@ -1,13 +1,17 @@
-<div>
-<%= @user.alias %>
+<div class="col-md-6 col-md-offset-3 text-center">
+	<h3>Welcome <%= @user.alias %>!</h3>
+	<h5>Here are your posts:</h5>
 
-<% @post.each do |p| %>
+	<%= button_to "add post", {:controller => :posts,
+	      :action => 'new' }, :method => :get %><br>
 
-<h4><%= p.title %></h4>
-<h5><%= p.body %></h5>
+	<% @post.each do |p| %>
+	<div class="well">
+		<h4><%= p.title %></h4>
+		<h5><%= p.body %></h5>	
+		<%= button_to "show details", {:controller => :posts,
+	      :action => 'show', :id => p.id }, :method => :get %>
+	</div>
 
-<%= button_to "show", {:controller => :posts,
-      :action => 'show', :id => p.id }, :method => :get %>
-
-<% end %>
+	<% end %>
 </div>
