@@ -1,14 +1,14 @@
 <div class="col-md-6 col-md-offset-3 text-center">
 
 	<form method="post" action="/posts/<%= @post.id %>/comments">
-		<legend>Add Comment</legend>
+		<legend><h3>Add Comment</h3></legend>
 		<%= form_for [@post, @comment]  do |f| %>
 		<% flash.each do |name, msg| -%>
 	      <%= content_tag :div, msg, class: name %>
 	    <% end -%>
 		<div class="form-group">
-			<label for="">Body</label>
-			<%= f.text_area :body, placeholder: "Body" %>
+			<label class="col-sm-12 col-md-12 col-lg-12 col-xl-12 control-label" for=""><h3>Body</h3></label>
+			<%= f.text_area :body, placeholder: "Body", class: "form-control input-lg" %>
 		</div>
 			<%= f.hidden_field :user_id, :value => @user.id %>
 			<%= f.hidden_field :post_id, :value => @post.id %>
