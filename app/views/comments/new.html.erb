@@ -3,9 +3,12 @@
 	<form method="post" action="/posts/<%= @post.id %>/comments">
 		<legend>Add Comment</legend>
 		<%= form_for [@post, @comment]  do |f| %>
+		<% flash.each do |name, msg| -%>
+	      <%= content_tag :div, msg, class: name %>
+	    <% end -%>
 		<div class="form-group">
 			<label for="">Body</label>
-			<%= f.text_field :body, placeholder: "Body" %>
+			<%= f.text_area :body, placeholder: "Body" %>
 		</div>
 			<%= f.hidden_field :user_id, :value => @user.id %>
 			<%= f.hidden_field :post_id, :value => @post.id %>

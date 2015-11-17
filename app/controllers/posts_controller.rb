@@ -34,7 +34,8 @@ class PostsController < ApplicationController
 		if @post.save
 			redirect_to "/users/#{@user.id}/posts"
 		else
-			redirect_to "/users/#{@user.id}/posts"
+			# redirect_to "/users/#{@user.id}/posts"
+			redirect_to "/users/#{@user.id}/posts/new", alert: @post.errors.full_messages 
 		end
 	end
 

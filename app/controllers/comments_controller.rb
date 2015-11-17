@@ -15,10 +15,12 @@ class CommentsController < ApplicationController
 	def create
 		comment_params = params.require(:comment).permit(:body, :user_id, :post_id)
 		@comment = Comment.create(comment_params)
+		@post = Post.find(params[:post_id])
 		if @comment.save
 			redirect_to "/cities"
 		else
-			redirect_to "/"
+			redirect_to "/posts/#{@post.id}/comments/new", alert: @comment.errors.full_messages 
+			# redirect_to "/"
 		end
 	end
 end
