@@ -7,8 +7,17 @@
 		<h5><%= p.body %></h5>
 		<%= button_to "delete", {:controller => :posts,
 	      :action => 'destroy', :id => p.id }, :method => :delete %>
+	    <!-- <form class=" btn btn-default" method="post" action="/posts/<%= p.id %>">
+	    	<input type="hidden" name="_method" value="delete">
+	    	<button type="submit" value="delete" class="btn btn-default">Delete</button>
+	    	<input type="submit" value="delete">
+	    	<input type="hidden" name="authenticity_token" value="UIWn84NM3Ug4Vn5Y0uNIr8JuBgXyi0h3G9DZoCnEX5VK7LQGZH6sOQIy382gtBHcZO75jguE9JdyE2r7MNIdCQ==">
+	    </form>
+	    <button type="button" method="delete" class="btn btn-default"><a href="/posts/<%= p.id %>">Delete</a></button> -->
 	    <button type="button" class="btn btn-default">
-		<a href="/users/5/posts/<%=p.id%>/edit">Update</a></button>
+		<a href="/users/5/posts/<%=p.id%>/edit">Edit</a></button>
+		<button type="button" class="btn btn-default">
+		<a href="/cities/<%=p.city_id%>/posts">Show Post</a></button>
 	</div>
 	<% end %>
 

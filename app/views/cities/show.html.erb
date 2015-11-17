@@ -4,16 +4,24 @@
 <h1> <%= @city.name %> </h1>
 
 <img src=<%= @city.img %> alt="City Images" style="width:600px;height:auto;">
+
+<%= button_to "add post", {:controller => :posts,
+	      :action => 'new', :id => session[:id] }, :method => :get %>
 </div>
+
 
 <% @posts.each do |p| %> 
 <div class="well text-center col-md-6 col-md-offset-3">
-	<h2><%= User.find(p.user_id).alias %></h2>
+	<% @user = User.find(p.user_id) %>
+	<img src="<%= @user.avatar %>" class="avatar_thumbnail" /img>
+	<h2><%= @user.alias %></h2>
 	<h3><%= p.title %> </h3>
 	<h4><%= p.body %> </h4>
 
 	<% if User.find(p.user_id).id == @user.id %>
-		<button><a href="/users/<%=User.find(p.user_id).id%>/posts/<%=p.id%>">Edit/Delete</a></button>
+		<button><a href="/users/<%=User.find(p.user_id).id%>/posts/<%=p.id%>">Edit</a></button>
+		<%= button_to "delete", {:controller => :posts,
+	      :action => 'destroy', :id => p.id }, :method => :delete %>
 	<% end %>
 
 	<button><a href="/posts/<%= p.id %>/comments/new">Add Comment</a></button>

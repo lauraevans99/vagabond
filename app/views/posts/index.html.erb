@@ -8,6 +8,7 @@
 
 	<% @post.each do |p| %>
 	<div class="well">
+		<img src="<%= @user.avatar %>" class="avatar_thumbnail" /img>
 		<h4><%= p.title %></h4>
 		<h5><%= p.body %></h5>	
 		<%= button_to "show details", {:controller => :posts,
@@ -27,7 +28,7 @@
 		<h4>CITY: <%= City.find(@post.city_id).name %></h4>
 		<h4>POST TITLE: <%= @post.title %></h4>
 		<h4>COMMENT: <%= c.body %></h4>	
-		<button><a href="/cities/<%= @post.city_id %>/posts">view post</a></button>
+		<button><a href="/cities/<%= @post.city_id %>/posts">View Post</a></button>
 	</div>
 	
 	<% end %>
