@@ -20,10 +20,11 @@ class SessionsController < ApplicationController
 			login(@user)
 			redirect_to "/users/#{@user.id}"
 		else
-			# flash[:error] = @user.errors.full_messages.to_sentence
-			# flash.now[:danger] = 'Invalid email/password combination'
-			# render 'new'
-			redirect_to "/sign_in"
+			# flash[:error] = 'Invalid email/password combination' #@user.errors.full_messages.to_sentence
+			 # flash.now[:danger] = 'Invalid email/password combination'
+			 # render 'new'
+			# redirect_to "/sign_in"
+			redirect_to "/sign_in", alert: "Incorrect User/Password Combination"
 		end
 	end
 

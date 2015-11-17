@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 		else	
 			@user = User.new
 			render 'new'
-			# redirect_to '/users/#{@user.id}'
+			redirect_to '/users/#{@user.id}'
 		end
 
 	end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 			login(@user)
 			redirect_to "/users/#{@user.id}"
 		else
-			redirect_to "/sign_in"
+			redirect_to "/sign_in", alert: @user.errors.full_messages 
 		end
 	end
 
