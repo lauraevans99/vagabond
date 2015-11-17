@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 		if id
 			@user = User.find(id)
 			@post = Post.where(user_id: @user.id)
+			@comments = Comment.where(user_id: @user.id)
 		else
 			redirect_to "/"
 		end
@@ -39,6 +40,12 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post = Post.find(params[:id])
+		@comments = Comment.where({post_id: @post.id})
+
+		@comments.each do |c|
+			c.destroy
+		end
+
 		@post.destroy
 		@user = User.find(session[:user_id])
 		redirect_to "/users/#{@user.id}/posts"

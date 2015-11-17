@@ -1,7 +1,8 @@
 <div class="col-md-6 col-md-offset-3 text-center">
 	<h3>Welcome <%= @user.alias %>!</h3>
+</div>
+<div class="col-md-6 text-center">
 	<h5>Here are your posts:</h5>
-
 	<%= button_to "add post", {:controller => :posts,
 	      :action => 'new' }, :method => :get %><br>
 
@@ -12,6 +13,23 @@
 		<%= button_to "show details", {:controller => :posts,
 	      :action => 'show', :id => p.id }, :method => :get %>
 	</div>
-
 	<% end %>
+</div>
+
+<div class="col-md-6 text-center">
+	<h5>Here are your comments:</h5>
+	<%= button_to "add comment", {:controller => :cities,
+	      :action => 'index' }, :method => :get %><br>
+
+	<% @comments.each do |c| %>
+	<div class="well">	
+		<% @post = Post.find(c.post_id) %>
+		<h4>CITY: <%= City.find(@post.city_id).name %></h4>
+		<h4>POST TITLE: <%= @post.title %></h4>
+		<h4>COMMENT: <%= c.body %></h4>	
+		<button><a href="/cities/<%= @post.city_id %>/posts">view post</a></button>
+	</div>
+	
+	<% end %>
+
 </div>
