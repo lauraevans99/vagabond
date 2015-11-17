@@ -18,6 +18,7 @@ class CitiesController < ApplicationController
 		id = session[:user_id]
 		@city = City.find(params[:id])
 		@user = User.find(id)
+		@posts = Post.where({city_id: @city.id})
 		# id = cities[:city_id]
 		if @city
 			

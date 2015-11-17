@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 	def new
 		@post = Post.new
 		@user = User.find(session[:user_id])
+		@cities = City.all
 	end
 
 	def create
