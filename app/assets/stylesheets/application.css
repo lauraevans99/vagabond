@@ -14,3 +14,7 @@
  *= require_self
  *= require bootstrap
  */
+
+ body {
+    background-image: url('http://abnf.co/OH-Abandoned%20House%20Near%20Fremont,%20OH/IMG_5672.JPG')
+}
